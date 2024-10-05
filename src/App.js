@@ -1,22 +1,22 @@
 import './App.css';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import PodcastDetail from './pages/PodcastDetail';
-import EpisodeDetail from './pages/EpisodeDetail';
-import Header from './Header';
+import LandingPage from './routes/LandingPage';
+import PodcastDetail from './routes/PodcastDetail';
+import EpisodeDetail from './routes/EpisodeDetail';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
+        <div className='p-6'>
         <Routes>
-          <Route exact path="/" element={<LandingPage />}>
-            <Route path="podcast/:podcastId" element={<PodcastDetail />}>
-              <Route path="episode/:episodeId" element={<EpisodeDetail />} />
-            </Route>
-          </Route>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/podcast/:podcastId" element={<PodcastDetail />}/>
+          <Route path="/podcast/:podcastId/episode/:episodeId" element={<EpisodeDetail />} />
         </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
