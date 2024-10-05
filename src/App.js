@@ -4,6 +4,7 @@ import LandingPage from './routes/LandingPage';
 import PodcastDetail from './routes/PodcastDetail';
 import EpisodeDetail from './routes/EpisodeDetail';
 import Header from './components/Header';
+import DetailLayout from './routes/DetailLayout';
 
 function App() {
   return (
@@ -13,8 +14,10 @@ function App() {
         <div className='p-6'>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route path="/podcast/:podcastId" element={<PodcastDetail />}/>
-          <Route path="/podcast/:podcastId/episode/:episodeId" element={<EpisodeDetail />} />
+          <Route path="podcast/:podcastId" element={<DetailLayout />}>
+            <Route index element={<PodcastDetail />} />
+            <Route path="episode/:episodeId" element={<EpisodeDetail />} />
+          </Route>
         </Routes>
         </div>
       </BrowserRouter>
