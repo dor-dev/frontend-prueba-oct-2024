@@ -1,12 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import PodcastCard from "../components/PodcastCard";
+import { PodcastContext } from "../PodcastContext";
 
 function DetailLayout() {
+  const { state } = useLocation();
+
   return (
     <div className="flex gap-8 items-start relative">
-      <PodcastCard />
-      <Outlet />
+      <PodcastContext.Provider value={state}>
+        <PodcastCard podcast={state}/>
+        <div className="flex-auto">
+          <Outlet />
+        </div>
+      </PodcastContext.Provider>
     </div>
+    
   );
 }
 
