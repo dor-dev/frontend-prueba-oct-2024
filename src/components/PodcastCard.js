@@ -3,7 +3,7 @@ import { usePodcastContext } from "../PodcastContext";
 
 function PodcastCard() {
 
-  const podcast = usePodcastContext();
+  const { podcast } = usePodcastContext();
 
   return (
     <div className="flex-none shadow-md p-4 basis-52 sticky top-6">
@@ -26,7 +26,7 @@ function PodcastCard() {
       </Link>
       <div className="border-b-2 border-gray-100 my-3"></div>
       <p className="font-bold text-sm">Description:</p>
-      <p className="itallic text-sm mt-1">
+      <p className="itallic text-sm italic mt-1">
         {podcast.description}
       </p>
     </div>

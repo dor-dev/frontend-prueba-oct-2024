@@ -82,6 +82,7 @@ function LandingPage({setLoading}) {
           onChange={(event) => setFilter(event.target.value)}
           className="border-2 rounded p-0.5 px-2 focus:outline-sky-500" 
           name="filter-podcast" 
+          id="filter-podcast" 
           placeholder="Filter podcasts..."/>
       </div>
       <PodcastList podcasts={filteredPodcasts}/>
@@ -103,7 +104,10 @@ function PodcastList({podcasts}) {
 
 function PodcastCard({podcast}) {
   return (
-    <Link to={"podcast/" + podcast.id} state={podcast} className="custom-zoom flex-1 basis-48 relative mt-6">
+    <Link 
+      to={"podcast/" + podcast.id} 
+      state={{podcast: podcast}} 
+      className="custom-zoom flex-1 basis-48 relative mt-6">
       <img 
         width={80}
         height={80}

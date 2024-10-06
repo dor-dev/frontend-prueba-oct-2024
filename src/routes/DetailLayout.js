@@ -8,7 +8,7 @@ function DetailLayout() {
   return (
     <div className="flex gap-8 items-start relative">
       <PodcastContext.Provider value={state}>
-        <PodcastCard podcast={state}/>
+        <PodcastCard podcast={state.podcast}/>
         <div className="flex-auto">
           <Outlet />
         </div>

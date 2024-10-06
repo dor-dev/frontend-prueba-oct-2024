@@ -50,6 +50,7 @@ function PodcastDetail({setLoading}) {
             id: episode["trackId"], 
             title: episode["trackName"], 
             date: new Date(episode["releaseDate"]).getTime(), 
+            url: episode["episodeUrl"], 
             duration: episode["trackTimeMillis"], 
             author: episode["artistName"], 
             description: episode["description"], 
@@ -81,7 +82,7 @@ function PodcastDetail({setLoading}) {
 
   return (
     <>
-      <div className="p-3 shadow-md mb-4">
+      <div className="p-4 py-3 shadow-md mb-4">
         <p className="text-lg"><b>Episodes: {episodes.length}</b></p>
       </div>
       <EpisodeList episodes={episodes}/>
@@ -93,13 +94,13 @@ export default PodcastDetail;
 
 function EpisodeList({episodes}) {
   
-  const podcast = usePodcastContext();
+  const { podcast } = usePodcastContext();
 
   const formatDuration = (duration) => {
-    const totalSeconds = Math.floor(duration / 1000);
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
+    const miliseconds = duration / 1000;
+    const seconds = Math.floor(miliseconds % 60);
+    const minutes = Math.floor((miliseconds / 60) % 60);
+    const hours   = Math.floor(((miliseconds / (60 * 60)) % 24));
 
     const formattedTime = 
       String(hours).padStart(2, '0') + ':' + 
@@ -110,7 +111,7 @@ function EpisodeList({episodes}) {
   }
 
   return (
-    <div className="p-3 shadow-md">
+    <div className="p-4 py-3 shadow-md">
       <div className="flex font-bold border-b-2 p-1 gap-2">
         <p className="flex-1">Title</p>
         <p className="basis-20 flex-none">Date</p>
@@ -122,7 +123,10 @@ function EpisodeList({episodes}) {
             <li 
               className={`flex p-1 gap-2 ${i % 2 === 0 ? "bg-zinc-50" : ""}`}
               key={episode.id}>
-              <Link to={"episode/" + episode.id} state={podcast} className="flex-1 text-sky-500">
+              <Link 
+                to={"episode/" + episode.id} 
+                state={{podcast: podcast, episode: episode}} 
+                className="flex-1 text-sky-500">
                 {episode.title}
               </Link>
               <p className="basis-20 flex-none">{new Date(episode.date).toLocaleDateString()}</p>
