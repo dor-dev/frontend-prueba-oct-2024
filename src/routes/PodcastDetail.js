@@ -40,8 +40,6 @@ function PodcastDetail({setLoading}) {
         }
 
         const result = await response.json();
-
-        console.warn("RESPONSE", result);
         
         const formattedResultPodcasts = result["results"]
           .filter(episode => episode["wrapperType"] !== "track")

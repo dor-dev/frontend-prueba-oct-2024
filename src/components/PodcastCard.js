@@ -8,7 +8,10 @@ function PodcastCard() {
   return (
     <div className="flex-none shadow-md p-4 basis-52 sticky top-6">
       <div className="flex">
-        <Link to={"/podcast/" + podcast.id} className="mx-auto">
+        <Link 
+          to={"/podcast/" + podcast.id} 
+          state={{podcast: podcast}}
+          className="mx-auto">
           <img 
             height={100}
             width={100}
@@ -18,10 +21,10 @@ function PodcastCard() {
         </Link>
       </div>
       <div className="border-b-2 border-gray-100 my-3 mt-4"></div>
-      <Link to={"/podcast/" + podcast.id}>
+      <Link to={"/podcast/" + podcast.id} state={{podcast: podcast}}>
         <p className="font-bold">{podcast.title}</p>
       </Link>
-      <Link to={"/podcast/" + podcast.id}>
+      <Link to={"/podcast/" + podcast.id} state={{podcast: podcast}}>
         <small className="italic ">{podcast.author}</small>
       </Link>
       <div className="border-b-2 border-gray-100 my-3"></div>

@@ -17,6 +17,10 @@ Genera le versión de producción en la carpeta `build`, ahí estarán los archi
 
 ## Observacones
 
+Se ha mantenido el límite de 20 entradas para los episodios del podcast como venía en el enlace.
+
+En la lista de podcasts no se ha incluído ningún tipo de paginación, con solo 100 entradas no me parece necesario.
+
 He intentado mantener el diseño de las vistas todo lo fiel posible a la tarea, aunque con algunas pequeñas libertades de diseño para ofrecer una mejor 
 experiencia visual:
 
