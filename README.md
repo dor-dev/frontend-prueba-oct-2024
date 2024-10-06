@@ -26,4 +26,4 @@ experiencia visual:
 
 - Se han ajustado algunos de los márgenes para encajar mejor el diseño.
 
-- Otras modificaciones que no recojen los requisitos ( algún efecto hover y focus por ejemplo ).
+- Otras modificaciones que no recojen los requisitos ( algún efecto hover y focus por ejemplo ) .
