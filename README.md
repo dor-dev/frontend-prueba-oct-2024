@@ -1,4 +1,4 @@
-# Prueba técnica desarrollo frontend | Daniel Otero Rivera.
+# Daniel Otero Rivera.<br>Prueba técnica desarrollo frontend.
 
 El proyecto ha sido creado con [Create React App](https://github.com/facebook/create-react-app) y utiliza [React Router](https://reactrouter.com/en/main) 
 
