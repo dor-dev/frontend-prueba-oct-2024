@@ -8,12 +8,13 @@ Se pueden utilizar los siguientes comandos:
 
 ### `npm start`
 
-Lanza la aplicación en modo developer.\
+Lanza la aplicación en modo desarrollo.\
 [http://localhost:3000](http://localhost:3000)
 
 ### `npm run build`
 
 Genera le versión de producción en la carpeta `build`, ahí estarán los archivos minimizados.
+Una vez generada, se puede lanzar en local con `serve -s build` ( instalar con `npm install -g serve` si no está disponible ) .
 
 ## Observacones
 
