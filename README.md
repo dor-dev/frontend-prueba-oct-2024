@@ -7,6 +7,10 @@ y utiliza [React Router](https://reactrouter.com/en/main).
 
 Se pueden utilizar los siguientes comandos:
 
+### `npm install`
+
+Instala las dependencias.
+
 ### `npm start`
 
 Lanza la aplicación en modo desarrollo.\
@@ -14,8 +18,7 @@ Lanza la aplicación en modo desarrollo.\
 
 ### `npm run build`
 
-Genera le versión de producción en la carpeta `build`, 
-ahí estarán los archivos minimizados.
+Genera la versión de producción en la carpeta `build` con los archivos minimizados.
 Una vez generada, se puede lanzar en local con `serve -s build` 
 ( instalar con `npm install -g serve` si no está disponible ) .
 
