@@ -29,16 +29,15 @@ function PodcastDetail({setLoading}) {
     fetchPodcastList();
 
     async function fetchPodcastList() {
-
       try {
         setLoading(true);
 
         const response = await fetch(`https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`);
-
+  
         if (!response.ok) {
           throw new Error("Couldn't fetch data");
         }
-
+  
         const result = await response.json();
         
         const formattedResultPodcasts = result["results"]
@@ -54,28 +53,27 @@ function PodcastDetail({setLoading}) {
             description: episode["description"], 
           };
         })
-
+  
         const newPodcastData = {
           id: podcastId, 
           items: formattedResultPodcasts, 
           lastUpdated: new Date().getTime(), 
         };
-
+  
         if (podcastData) {
           localStorage.setItem("podcast-episodes", JSON.stringify([...JSON.parse(podcastData), newPodcastData]));
         } else {
           localStorage.setItem("podcast-episodes", JSON.stringify([newPodcastData]));
         }
-
+  
         setEpisodes(formattedResultPodcasts);
 
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
     }
-
   }, [podcastId, setLoading]);
 
   return (
@@ -95,7 +93,11 @@ function EpisodeList({episodes}) {
   const { podcast } = usePodcastContext();
 
   const formatDuration = (duration) => {
-    const miliseconds = duration / 1000;
+    const parsedDuration = Number(duration);
+    if (isNaN(parsedDuration)) {
+      return "00:00:00";
+    }
+    const miliseconds = parsedDuration / 1000;
     const seconds = Math.floor(miliseconds % 60);
     const minutes = Math.floor((miliseconds / 60) % 60);
     const hours   = Math.floor(((miliseconds / (60 * 60)) % 24));
