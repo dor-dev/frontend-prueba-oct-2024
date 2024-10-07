@@ -59,7 +59,7 @@ experiencia visual:
 - Se han ajustado algunos de los márgenes para encajar mejor el diseño.
 
 - El icono de carga utilizado proviene de 
-[CSS Loaders](https://cssloaders.github.io/)
+[CSS Loaders](https://cssloaders.github.io/).
 
 - Otras modificaciones que no recojen los requisitos 
 ( algún efecto hover y focus por ejemplo ) .
