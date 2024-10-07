@@ -7,6 +7,10 @@ y utiliza [React Router](https://reactrouter.com/en/main).
 
 Se pueden utilizar los siguientes comandos:
 
+### `npm install`
+
+Instala las dependencias.
+
 ### `npm start`
 
 Lanza la aplicación en modo desarrollo.\
