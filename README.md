@@ -25,8 +25,11 @@ Se ha priorizado el tiempo de desarrollo siguiendo los requisitos de la prueba.
 Algunas posibles mejoras de cara a una futura versión en un entorno real serían:
 
 - Refactorización con TypeScript para una mejor experiencia de desarrollo.
+
 - Uso de tests ( end-to-end, unitarios ) para facilitar revisiones futuras. 
+
 - Gestión de errores de cara al usuario.
+
 - Paginación en la lista de podcast y episodios 
 ( en caso de que se manejasen más de 100 entradas ) .
 
